@@ -1,11 +1,14 @@
 package com.deepanshu.fooddelapi.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.deepanshu.fooddelapi.model.UsersDTO;
 import com.deepanshu.fooddelapi.repo.UserRepo;
 
-public class UserServiceImpl implements UserService{
+
+@Service
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepo userRepo;
@@ -13,7 +16,6 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UsersDTO createUser(UsersDTO usersDTO) {
 		System.out.println("here inside creta user service "+ usersDTO.toString());	
-		// check this
 		return userRepo.save(usersDTO);
 	}
 

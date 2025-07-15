@@ -35,7 +35,7 @@ public class UsersDTO {
 	private String userName;
 	
 	@Column(nullable = false)
-	private String UserMail;
+	private String userMail;
 	
 	@Column(nullable = false)
 	private String userPassword;

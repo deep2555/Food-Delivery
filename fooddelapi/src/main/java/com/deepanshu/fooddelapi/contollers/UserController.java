@@ -13,7 +13,6 @@ import com.deepanshu.fooddelapi.services.UserServiceImpl;
 @RestController
 public class UserController {
 
-	
 
 	@Autowired
 	private UserServiceImpl userServiceImpl;
@@ -21,8 +20,8 @@ public class UserController {
 	@PostMapping("/createUser")
 	public ResponseEntity<UsersDTO> createUser(@RequestBody UsersDTO usersDTO){
 		
-		System.out.println("inside the add Restaurant method ");
-		System.out.println("fething the restaurant details: "+ usersDTO.toString());
+		System.out.println("inside the add user method ");
+		System.out.println("fething the user details: "+ usersDTO.toString());
 		UsersDTO userResult =   userServiceImpl.createUser(usersDTO);		
 		return new ResponseEntity<UsersDTO>(userResult, HttpStatus.CREATED);
 		
