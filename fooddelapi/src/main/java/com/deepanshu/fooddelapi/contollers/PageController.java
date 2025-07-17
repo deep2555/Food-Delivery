@@ -14,4 +14,15 @@ public class PageController {
 		  System.out.println("inside the homPage method ");
 	        return "index"; // loads templates/index.html
 	    }
+	  @RequestMapping("/register")
+	  public String registrationPage() {
+		  System.out.println("inside register page menthod");
+		  return "registration";
+	  }
+	  @RequestMapping("/login")
+	  public String loginPage() {
+		  System.out.println("inside Login page menthod");
+		  return "login";
+	  }
+	  
 }

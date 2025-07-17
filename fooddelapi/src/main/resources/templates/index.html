@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Delivery Application</title>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<link rel="stylesheet" th:href="@{/Css/style.css}" />
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="logo">
+				<h1>
+					<i class="fas fa-utensils"></i> FoodExpress
+				</h1>
+			</div>
+			<nav>
+				<a href="#" id="homeLink">Home</a> <a href="#" id="restaurantsLink">Restaurants</a>
+				<a href="#" id="orderLink">Place Order</a> 
+				<a  th:href="@{/login}" id="loginLink">Login</a> 
+					<a th:href="@{/register}" id="registerLink" class="btn">Register</a>
+			</nav>
+			<div class="mobile-menu">
+				<i class="fas fa-bars"></i>
+			</div>
+		</div>
+	</header>
+
+	<main id="content">
+		<!-- Home Page Content -->
+		<section class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h2>Delicious Food Delivered To Your Doorstep</h2>
+					<p>Order from your favorite restaurants with just a few clicks</p>
+					<a href="#" id="orderNowBtn" class="btn btn-large">Order Now</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="features">
+			<div class="container">
+				<h2>Why Choose Us</h2>
+				<div class="features-grid">
+					<div class="feature">
+						<i class="fas fa-bolt"></i>
+						<h3>Fast Delivery</h3>
+						<p>Get your food delivered in under 30 minutes or it's free</p>
+					</div>
+					<div class="feature">
+						<i class="fas fa-utensils"></i>
+						<h3>Wide Selection</h3>
+						<p>Choose from 100+ restaurants in your area</p>
+					</div>
+					<div class="feature">
+						<i class="fas fa-tag"></i>
+						<h3>Great Deals</h3>
+						<p>Enjoy exclusive discounts and offers</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="popular-restaurants">
+			<div class="container">
+				<h2>Popular Restaurants</h2>
+				<div class="restaurants-grid">
+					<div class="restaurant-card">
+						<img
+							src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+							alt="Restaurant 1">
+						<h3>Gourmet Palace</h3>
+						<p>Italian, Mediterranean</p>
+						<div class="rating">
+							<i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+								class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+								class="fas fa-star-half-alt"></i> <span>4.5 (120)</span>
+						</div>
+					</div>
+					<div class="restaurant-card">
+						<img
+							src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+							alt="Restaurant 2">
+						<h3>Spice Kingdom</h3>
+						<p>Indian, Asian</p>
+						<div class="rating">
+							<i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+								class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+								class="far fa-star"></i> <span>4.0 (95)</span>
+						</div>
+					</div>
+					<div class="restaurant-card">
+						<img
+							src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+							alt="Restaurant 3">
+						<h3>Burger Factory</h3>
+						<p>American, Fast Food</p>
+						<div class="rating">
+							<i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+								class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+								class="fas fa-star"></i> <span>5.0 (200)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Login Modal -->
+	<div class="modal" id="loginModal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>Login to Your Account</h2>
+			<form id="loginForm">
+				<div class="form-group">
+					<label for="loginEmail">Email</label> <input type="email"
+						id="loginEmail" required>
+				</div>
+				<div class="form-group">
+					<label for="loginPassword">Password</label> <input type="password"
+						id="loginPassword" required>
+				</div>
+				<button type="submit" class="btn">Login</button>
+				<p>
+					Don't have an account? <a href="#" id="showRegister">Register
+						here</a>
+				</p>
+			</form>
+		</div>
+	</div>
+
+	<!-- Registration Modal -->
+	<div class="modal" id="registerModal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>Create an Account</h2>
+			<form id="registerForm">
+				<div class="form-group">
+					<label for="registerName">Full Name</label> <input type="text"
+						id="registerName" required>
+				</div>
+				<div class="form-group">
+					<label for="registerEmail">Email</label> <input type="email"
+						id="registerEmail" required>
+				</div>
+				<div class="form-group">
+					<label for="registerPassword">Password</label> <input
+						type="password" id="registerPassword" required>
+				</div>
+				<div class="form-group">
+					<label for="registerConfirmPassword">Confirm Password</label> <input
+						type="password" id="registerConfirmPassword" required>
+				</div>
+				<div class="form-group">
+					<label for="registerAddress">Delivery Address</label>
+					<textarea id="registerAddress" rows="3" required></textarea>
+				</div>
+				<div class="form-group">
+					<label for="registerPhone">Phone Number</label> <input type="tel"
+						id="registerPhone" required>
+				</div>
+				<button type="submit" class="btn">Register</button>
+				<p>
+					Already have an account? <a href="#" id="showLogin">Login here</a>
+				</p>
+			</form>
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-section">
+					<h3>FoodExpress</h3>
+					<p>Delivering happiness since 2023</p>
+				</div>
+				<div class="footer-section">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Restaurants</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h3>Contact Us</h3>
+					<p>
+						<i class="fas fa-map-marker-alt"></i> 123 Food Street, Foodville
+					</p>
+					<p>
+						<i class="fas fa-phone"></i> +1 234 567 890
+					</p>
+					<p>
+						<i class="fas fa-envelope"></i> info@foodexpress.com
+					</p>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2023 FoodExpress. All rights reserved.</p>
+				<div class="social-icons">
+					<a href="#"><i class="fab fa-facebook"></i></a> <a href="#"><i
+						class="fab fa-twitter"></i></a> <a href="#"><i
+						class="fab fa-instagram"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
