@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | FoodExpress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/Css/style.css}" />
+    <link rel="stylesheet" th:href="@{/Css/dashboard.css}">
+</head>
+<body>
+    <!-- Header with User Profile -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-utensils"></i> FoodExpress</h1>
+            </div>
+            <nav>
+                <a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="restaurants.html"><i class="fas fa-store"></i> Restaurants</a>
+                <a href="orders.html"><i class="fas fa-clipboard-list"></i> My Orders</a>
+                <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+                
+                <!-- Profile Section - Moved to top-right -->
+                <div class="profile-section">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="profile-dropdown">
+                        <button class="profile-btn">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff6b6b&color=fff" 
+                                 alt="Profile" class="profile-pic">
+                            <span id="username-display">John Doe</span>
+                            <i class="fas fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                            <a href="addresses.html"><i class="fas fa-map-marker-alt"></i> My Addresses</a>
+                            <a href="payment.html"><i class="fas fa-credit-card"></i> Payment Methods</a>
+                            <a href="favorites.html"><i class="fas fa-heart"></i> Favorites</a>
+                            <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Main Content -->
+    <main class="dashboard-container">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div class="container">
+                <div class="welcome-content">
+                    <div>
+                        <h2>Welcome back, <span id="user-greeting">John</span>!</h2>
+                        <p>What would you like to order today?</p>
+                    </div>
+                    <div class="delivery-time">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span>Estimated delivery time:</span>
+                            <strong>25-35 mins</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Delivery Address -->
+                <div class="delivery-address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <span>Delivering to:</span>
+                        <strong id="current-address">123 Main St, Apt 4B, New York, NY 10001</strong>
+                    </div>
+                    <button class="btn-change">Change</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filters -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for restaurants or dishes...">
+                    <button class="btn-search">Search</button>
+                </div>
+                <div class="filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn"><i class="fas fa-bolt"></i> Fast Delivery</button>
+                    <button class="filter-btn"><i class="fas fa-star"></i> Top Rated</button>
+                    <button class="filter-btn"><i class="fas fa-tag"></i> Offers</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="container">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <div class="action-card" onclick="location.href='restaurants.html?category=fastfood'">
+                        <div class="action-icon" style="background-color: #ffeaa7;">
+                            <i class="fas fa-hamburger"></i>
+                        </div>
+                        <span>Fast Food</span>
+                    </div>
+                    <div class="action-card" onclick="location.href='restaurants.html?category=italian'">
+                        <div class="action-icon" style="background-color: #fab1a0;">
+                            <i class="fas fa-pizza-slice"></i>
+                        </div>
+                        <span>Italian</span>
+                    </div>
+                    <div class="action-card" onclick="location.href='restaurants.html?category=asian'">
+                        <div class="action-icon" style="background-color: #fd79a8;">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <span>Asian</span>
+                    </div>
+                    <div class="action-card" onclick="location.href='restaurants.html?category=healthy'">
+                        <div class="action-icon" style="background-color: #55efc4;">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <span>Healthy</span>
+                    </div>
+                    <div class="action-card" onclick="location.href='restaurants.html?category=desserts'">
+                        <div class="action-icon" style="background-color: #74b9ff;">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <span>Desserts</span>
+                    </div>
+
+                    <div class="action-card" onclick="location.href='restaurants.html?category=desserts'">
+                        <div class="action-icon" style="background-color: #74b9ff;">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <span>Desserts</span>
+                    </div>
+
+                    <div class="action-card" onclick="location.href='restaurants.html?category=desserts'">
+                        <div class="action-icon" style="background-color: #74b9ff;">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <span>Desserts</span>
+                    </div>
+
+                    <div class="action-card" onclick="location.href='restaurants.html?category=desserts'">
+                        <div class="action-icon" style="background-color: #74b9ff;">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <span>Desserts</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers -->
+        <section class="special-offers">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Special Offers</h3>
+                    <a href="offers.html" class="see-all">See All</a>
+                </div>
+                
+                <div class="offers-slider">
+                    <div class="offer-card">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Special Offer">
+                        <div class="offer-content">
+                            <h4>50% OFF</h4>
+                            <p>On your first order with Burger King</p>
+                            <button class="btn-offer">Use Code: BURGER50</button>
+                        </div>
+                    </div>
+                    <div class="offer-card">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae" alt="Special Offer">
+                        <div class="offer-content">
+                            <h4>Free Delivery</h4>
+                            <p>On orders above $20 from Pizza Hut</p>
+                            <button class="btn-offer">Order Now</button>
+                        </div>
+                    </div>
+
+                    <div class="offer-card">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae" alt="Special Offer">
+                        <div class="offer-content">
+                            <h4>Free Delivery</h4>
+                            <p>On orders above $20 from Pizza Hut</p>
+                            <button class="btn-offer">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Restaurants -->
+        <section class="recommended-restaurants">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Recommended For You</h3>
+                    <a href="restaurants.html" class="see-all">See All</a>
+                </div>
+                
+                <div class="restaurants-grid" id="recommended-restaurants">
+                    <!-- Dynamically loaded from API -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Orders -->
+        <section class="recent-orders">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Your Recent Orders</h3>
+                    <a href="orders.html" class="see-all">See All</a>
+                </div>
+                
+                <div class="orders-list" id="recent-orders">
+                    <!-- Dynamically loaded from API -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script th:src="@{/JavaScript/dashboard.js}"></script>
+</body>
+</html>

@@ -16,13 +16,13 @@ if(loginForm){
         const userPassword = document.getElementById('password').value;
 
         // to print the value in the console
-        console.log(userEmail.value);
-        console.log(userPassword.value);
+        console.log(userEmail);
+        console.log(userPassword);
 		
 		// Create user object
 		           const userDetail = {
-		               userMail,
-		               userPassword,
+		               userEmail,
+		               userPassword
 		              // phone,
 		              // address
 		           };
@@ -36,21 +36,31 @@ if(loginForm){
               // Send login request
               // method created below
               const response = await loginUser(userDetail);
+			  console.log("Sending data:", JSON.stringify(userDetail));
 
               if (response.ok) {
                 // Registration successful
                 // method defination at last
                 showSuccess('Login successful! Redirecting to Home...');
+				
+				// here i am adding the code to save the email in the session storage
+				console.log('setting the seession')
+				sessionStorage.setItem('userEmail', userEmail);
                 
                 // Redirect to login page after 2 seconds
                 setTimeout(() => {
-                    window.location.href = '/index';
+                    window.location.href = '/dashboard';
                 }, 2000);
             } else {
                 // Handle server-side errors
-                const errorData = await response.json();
-                // method defination at last
-                showError(errorData.message || 'Login failed');
+				let errorMessage = 'Login failed';
+				    try {
+				        const errorData = await response.json();
+				        errorMessage = errorData.message || errorMessage;
+				    } catch (e) {
+				        console.warn("No JSON response from server.");
+				    }
+				    showError(errorMessage);
             }
         } catch (error) {
             showError('An error occurred. Please try again.');
@@ -74,7 +84,8 @@ async function loginUser(userDetail) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({userDetail})
+		
+        body: JSON.stringify(userDetail)
     });
     
     return response;

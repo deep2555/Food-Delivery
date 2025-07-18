@@ -25,4 +25,9 @@ public class PageController {
 		  return "login";
 	  }
 	  
+	  @RequestMapping("/dashboard")
+	  public String dashboard() {
+		  System.out.println("inside dashboard page menthod");
+		  return "dashboard";
+	  }
 }
