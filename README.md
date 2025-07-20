@@ -1,16 +1,16 @@
 
 # 🍕 Food Delivery Application
 
-A basic full-stack food delivery application using HTML, CSS, JavaScript (frontend) and Spring Boot (backend). It includes core functionalities like user registration, login, logout, and profile management. This project aims to simulate a simple but scalable food ordering system.
+A basic full-stack food delivery application using HTML, CSS, JavaScript (frontend) and Spring Boot (backend). It includes core functionalities like user registration, login, logout, and profile management. This project aims to simulate a simple but scalable production ready food ordering system.
 
 ---
 
 ## 🔧 Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Spring Boot, Spring Security
+- **Backend**: Java, Spring Boot, Spring Security
 - **Database**: MySQL
-- **Tools**: IntelliJ IDEA, Postman, Git, GitHub
+- **Tools**: Eclipse, Postman, Git, GitHub, Spring Suit tool.
 
 ---
 
@@ -20,6 +20,7 @@ A basic full-stack food delivery application using HTML, CSS, JavaScript (fronte
 - Login/Logout with session handling
 - Fetch and display user profile from database
 - Basic UI for login and registration
+- Basic UI for Dashboard and Home
 
 ---
 
@@ -86,15 +87,7 @@ A basic full-stack food delivery application using HTML, CSS, JavaScript (fronte
 
 ---
 
-## 📸 Screenshots
 
-> Add screenshots here using the format below:
-```
-![Login Page](screenshots/login.png)
-![User Profile](screenshots/profile.png)
-```
-
----
 
 ## 🤝 Contributing
 
