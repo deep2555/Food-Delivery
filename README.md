@@ -7,6 +7,7 @@ A basic full-stack food delivery application using HTML, CSS, JavaScript (fronte
 
 ## 🔧 Tech Stack
 
+
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Java, Spring Boot, Spring Security
 - **Database**: MySQL
