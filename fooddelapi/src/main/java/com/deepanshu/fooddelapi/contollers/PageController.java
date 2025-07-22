@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
 	
+
 	  @RequestMapping("/home")
 	    public String homePage() {
 		  System.out.println("inside the homPage method ");
@@ -29,5 +30,17 @@ public class PageController {
 	  public String dashboard() {
 		  System.out.println("inside dashboard page menthod");
 		  return "dashboard";
+	  }
+	  
+	  @RequestMapping("/restaurants")
+	  public String restaurant() {
+		  System.out.println("inside dashboard page menthod");
+		  return "restaurant";
+	  }
+	  
+	  @RequestMapping("/restaurantsDetails")
+	  public String restaurantDetail() {
+		  System.out.println("inside dashboard page menthod");
+		  return "restaurantDetail";
 	  }
 }
