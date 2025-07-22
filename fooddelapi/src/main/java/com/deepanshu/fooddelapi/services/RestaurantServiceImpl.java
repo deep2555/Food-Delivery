@@ -2,6 +2,9 @@ package com.deepanshu.fooddelapi.services;
 
 
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,7 +51,25 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return saveToDB(restaurantDTO);
 
 	}
+	// here is the method to fetch the details of the restaurant
+	@Override
+	public List<RestaurantDTO> fetchRestaurantdata() {
+		System.out.println("inside the fetch restaurant service methd"); 
+		return restaurantRepo.findAll();
+	}
 
+	// here we fetch the detail of the restaurant by id
+	@Override
+	public Optional<RestaurantDTO> fetchRestaurantDetailsById(int id) {
+		System.out.println("inside fetchRestaurantDetailsById service method with id: "+ id);
+		Optional<RestaurantDTO> resultFetchRestaurant = restaurantRepo.findById(id);
+		resultFetchRestaurant.stream().forEach(System.out::println);
+		
+		return resultFetchRestaurant;
+	}
+	
+	
+	// helping methods 
 	private RestaurantDTO saveToDB(RestaurantDTO restaurantDTO) {
 		// here to save the restaurant inside the database
 		System.out.println("inside save to db restaurant");
@@ -64,5 +85,8 @@ public class RestaurantServiceImpl implements RestaurantService {
 		}
 
 	}
+
+
+
 
 }
