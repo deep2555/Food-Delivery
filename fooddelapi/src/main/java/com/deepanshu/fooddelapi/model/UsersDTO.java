@@ -44,6 +44,7 @@ public class UsersDTO {
 	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
 	
+	private String userAddress;
 	
 	
 }
