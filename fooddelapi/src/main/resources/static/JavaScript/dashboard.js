@@ -44,6 +44,7 @@ async function fetchUserProfile(userEmail){
     try{
 		console.log('user email sending',userEmail);
          document.getElementById('username-display').textContent = 'Loading...';
+		 document.getElementById('current-address').textContent = 'Loading...';
         const response = await fetch(`/api/users/profile?email=${encodeURIComponent(userEmail)}`);
         console.log(response);
         // check response
@@ -76,7 +77,9 @@ function updateProfileUI(user){
 
 	console.log(user.userName);
     document.getElementById('username-display').textContent = user.userName; // attached the user full name here check the full name at last
-    // Update profile picture
+   	document.getElementById('current-address').textContent = user.userAddress; // attached the address
+	
+	 // Update profile picture
     const profilePic = document.querySelector('.profile-pic');
     // here the profile image is not impleted yet so later see
     if (user.profileImage) {
@@ -94,9 +97,9 @@ function updateProfileUI(user){
         document.getElementById('user-greeting').textContent = firstName;
     }
     // Update delivery address if available
-    // if (user.address && document.getElementById('current-address')) {
-    //     document.getElementById('current-address').textContent = user.address;
-    // }
+     if (user.userAddress && document.getElementById('current-address')) {
+         document.getElementById('current-address').textContent = user.userAddress;
+     }
 
 }
 
