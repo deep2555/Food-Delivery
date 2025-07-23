@@ -33,6 +33,10 @@ public class RestaurantDTO {
     private String restaurantContactInfo;
     private String restaurantOpeningHours;
     private String restaurantCuisineType;
+    
+    // new variable added 
+    private String delieveryTime;
+    private String priceRange;
 
     @ManyToOne
     @JoinColumn(name = "Owner_Id")
