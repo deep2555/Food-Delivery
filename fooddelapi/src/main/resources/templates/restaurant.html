@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants | FoodExpress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/Css/style.css}" />
+    <link rel="stylesheet" th:href="@{/Css/restaurant.css}">
+</head>
+<body>
+    <!-- Header with User Profile -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-utensils"></i> FoodExpress</h1>
+            </div>
+            <nav>
+                <a href="/dashboard"><i class="fas fa-home"></i> Home</a>
+                <a href="/restaurants" class="active"><i class="fas fa-store"></i> Restaurants</a>
+                <a href="/orders"><i class="fas fa-clipboard-list"></i> My Orders</a>
+                <a href="/cart" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+                
+                <!-- Profile Section - Moved to top-right -->
+                <div class="profile-section">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="profile-dropdown">
+                        <button class="profile-btn">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff6b6b&color=fff" 
+                                 alt="Profile" class="profile-pic">
+                            <span id="username-display">John Doe</span>
+                            <i class="fas fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                            <a href="addresses.html"><i class="fas fa-map-marker-alt"></i> My Addresses</a>
+                            <a href="payment.html"><i class="fas fa-credit-card"></i> Payment Methods</a>
+                            <a href="favorites.html"><i class="fas fa-heart"></i> Favorites</a>
+                            <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Restaurant Listing Main Content -->
+    <main class="restaurants-page-container">
+        <!-- Search and Filters -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="restaurantSearch" placeholder="Search restaurants...">
+                    <button class="btn-search">Search</button>
+                </div>
+                <div class="filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn"><i class="fas fa-bolt"></i> Fast Delivery</button>
+                    <button class="filter-btn"><i class="fas fa-star"></i> Top Rated</button>
+                    <button class="filter-btn"><i class="fas fa-dollar-sign"></i> Budget</button>
+                    <button class="filter-btn"><i class="fas fa-utensils"></i> Cuisine</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restaurant List -->
+        <section class="restaurant-list">
+            <div class="container">
+                <div class="section-header">
+                    <h2>All Restaurants</h2>
+                    <div class="sort-options">
+                        <span>Sort by:</span>
+                        <select id="sortRestaurants">
+                            <option value="rating">Rating</option>
+                            <option value="delivery">Delivery Time</option>
+                            <option value="price">Price</option>
+                            <option value="name">Name</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="restaurants-container" id="restaurantsGrid">
+                    <!-- Restaurant cards will be dynamically loaded here -->
+                    <!-- <div class="restaurant-card" onclick="window.location.href='/restaurantsDetail'">
+                        <div class="restaurant-image">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Gourmet Palace">
+                            <span class="delivery-time">25-35 min</span>
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.5</span>
+                        </div>
+                        <div class="restaurant-info">
+                            <h3>Gourmet Palace</h3>
+                            <p class="cuisine-type">Italian, Mediterranean</p>
+                            <p class="restaurant-address"><i class="fas fa-map-marker-alt"></i> 123 Food Street, Downtown</p>
+                            <div class="restaurant-footer">
+                                <span class="price-range">$$</span>
+                                <span class="opening-status open">Open Now</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    More restaurant cards
+                    <div class="restaurant-card" onclick="window.location.href='/restaurant/2'">
+                        <div class="restaurant-image">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Spice Kingdom">
+                            <span class="delivery-time">30-45 min</span>
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.2</span>
+                        </div>
+                        <div class="restaurant-info">
+                            <h3>Spice Kingdom</h3>
+                            <p class="cuisine-type">Indian, Asian</p>
+                            <p class="restaurant-address"><i class="fas fa-map-marker-alt"></i> 456 Curry Lane, Midtown</p>
+                            <div class="restaurant-footer">
+                                <span class="price-range">$$$</span>
+                                <span class="opening-status open">Open Now</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card" onclick="window.location.href='/restaurant/3'">
+                        <div class="restaurant-image">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Burger Factory">
+                            <span class="delivery-time">15-25 min</span>
+                            <span class="rating-badge"><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <div class="restaurant-info">
+                            <h3>Burger Factory</h3>
+                            <p class="cuisine-type">American, Fast Food</p>
+                            <p class="restaurant-address"><i class="fas fa-map-marker-alt"></i> 789 Burger Ave, Uptown</p>
+                            <div class="restaurant-footer">
+                                <span class="price-range">$</span>
+                                <span class="opening-status open">Open Now</span>
+                            </div>
+                        </div>
+                    </div>
+                 -->
+                 </div>
+                
+                <div class="pagination">
+                    <button class="btn-pagination active">1</button>
+                    <button class="btn-pagination">2</button>
+                    <button class="btn-pagination">3</button>
+                    <button class="btn-pagination-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script th:src="@{/JavaScript/restaurant.js}"></script> 
+</body>
+</html>
