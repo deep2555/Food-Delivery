@@ -46,6 +46,8 @@ public class RestaurantServiceImpl implements RestaurantService {
 		restaurantDTO.setRestaurantContactInfo(restaurantRequestModel.getRestaurantContactInfo());
 		restaurantDTO.setRestaurantAddress(restaurantRequestModel.getRestaurantAddress());
 		restaurantDTO.setRestaurantOpeningHours(restaurantRequestModel.getRestaurantOpeningHours());
+		restaurantDTO.setDelieveryTime(restaurantRequestModel.getDelieveryTime());
+		restaurantDTO.setPriceRange(restaurantRequestModel.getPriceRange());
 		restaurantDTO.setRestOwner(fetchUserForRestaurant);
 		
 		return saveToDB(restaurantDTO);
