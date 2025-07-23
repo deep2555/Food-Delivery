@@ -13,6 +13,10 @@ public class RestaurantRequestModel {
     private String restaurantOpeningHours;
     private String restaurantCuisineType;
     private int ownerId;  // Just the ID
+    // new variable added 
+    private String delieveryTime;
+    private String priceRange;
+
     
     
     
@@ -58,13 +62,28 @@ public class RestaurantRequestModel {
 	public void setOwnerId(int ownerId) {
 		this.ownerId = ownerId;
 	}
+	
+	public String getDelieveryTime() {
+		return delieveryTime;
+	}
+	public void setDelieveryTime(String delieveryTime) {
+		this.delieveryTime = delieveryTime;
+	}
+	public String getPriceRange() {
+		return priceRange;
+	}
+	public void setPriceRange(String priceRange) {
+		this.priceRange = priceRange;
+	}
 	@Override
 	public String toString() {
 		return "RestaurantRequestModel [restaurantName=" + restaurantName + ", restaurantDescription="
 				+ restaurantDescription + ", restaurantAddress=" + restaurantAddress + ", restaurantContactInfo="
 				+ restaurantContactInfo + ", restaurantOpeningHours=" + restaurantOpeningHours
-				+ ", restaurantCuisineType=" + restaurantCuisineType + ", ownerId=" + ownerId + "]";
+				+ ", restaurantCuisineType=" + restaurantCuisineType + ", ownerId=" + ownerId + ", delieveryTime="
+				+ delieveryTime + ", priceRange=" + priceRange + "]";
 	}
+	
     
     
 }
