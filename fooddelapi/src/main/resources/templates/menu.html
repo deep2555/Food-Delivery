@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | FoodExpress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="menu.css">
+
+</head>
+
+<body>
+
+    <!-- Menu Section -->
+    <div id="menu" class="content-section">
+        <h2>Menu</h2>
+
+        <!-- Menu Filter Tabs -->
+        <div class="menu-filters">
+            <button class="filter-btn active" data-category="all">All Items</button>
+            <button class="filter-btn" data-category="appetizers">Appetizers</button>
+            <button class="filter-btn" data-category="main-courses">Main Courses</button>
+            <button class="filter-btn" data-category="desserts">Desserts</button>
+            <button class="filter-btn" data-category="beverages">Beverages</button>
+        </div>
+
+        <!-- Dietary Filters -->
+        <div class="dietary-filters">
+            <span>Filter by:</span>
+            <button class="dietary-filter" data-diet="vegetarian">Vegetarian 🌱</button>
+            <button class="dietary-filter" data-diet="vegan">Vegan 🌿</button>
+            <button class="dietary-filter" data-diet="gluten-free">Gluten Free 🌾</button>
+            <button class="dietary-filter" data-diet="spicy">Spicy 🌶️</button>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div class="menu-grid" id="menu-items-container">
+            <!-- Sample Item 1 -->
+            <div class="menu-item" data-category="appetizers" data-diets="vegetarian">
+                <div class="item-image">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Bruschetta"
+                        loading="lazy">
+                </div>
+                <div class="item-details">
+                    <h3>Bruschetta</h3>
+                    <p class="item-description">Toasted bread topped with tomatoes, garlic, and fresh basil</p>
+                    <div class="item-meta">
+                        <span class="price">$8.99</span>
+                        <span class="dietary-tag vegetarian">🌱 Vegetarian</span>
+                    </div>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Sample Item 2 -->
+            <div class="menu-item" data-category="main-courses" data-diets="spicy">
+                <div class="item-image">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b" alt="Spicy Pasta"
+                        loading="lazy">
+                </div>
+                <div class="item-details">
+                    <h3>Spicy Arrabbiata Pasta</h3>
+                    <p class="item-description">Penne pasta with spicy tomato sauce and chili flakes</p>
+                    <div class="item-meta">
+                        <span class="price">$14.99</span>
+                        <span class="dietary-tag spicy">🌶️ Spicy</span>
+                    </div>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- More items will be loaded dynamically -->
+        </div>
+    </div>
+</body>
