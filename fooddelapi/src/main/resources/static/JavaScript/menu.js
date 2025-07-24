@@ -1,0 +1,53 @@
+// here the code to show mwnu list dynamically on page
+// use DOMContentLoaded so it handle or call the js after fully load the html
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('inside the menu js');
+
+    // ftech the detail like when user click particular restaurant 
+    // fetch the id of particular restaurant by urlSearchparam
+
+    const urlParam = new URLSearchParams(window.location.search);
+    const restaurantId = urlParam.get('id');
+
+    console.log('url param is :', urlParam);
+    console.log('restaurant id is :', restaurantId);
+
+    if (restaurantId) {
+        // if we fetch the id than load the detail by passing that id
+        loadMenuDetailsById(restaurantId);
+    } else {
+        throw new Error('not able to fetch the id');
+    }
+
+})
+
+async function loadMenuDetailsById(restaurantId) {
+    // to load the details
+    console.log('inside the load menu dtail method');
+    try {
+        const response = await fetch(`/api/user/restaurant/menu/${restaurantId}`);
+        console.log(response);
+
+        if (!response.ok) {
+            throw new console.error('unable to fetch the details');
+            showError('unable to fetch the details');
+        }
+
+        const jsonPharseResponse = await response.json();
+        updateMenuDynamicCard(jsonPharseResponse);
+    }
+    catch (error) {
+        console.log('error loading menu:', error);
+        showError('unable to load details');
+    }
+
+}
+
+function updateMenuDynamicCard(jsonPharseResponse) {
+
+    const cardContainer = document.getElementById('category-tabs');
+    const menuContainer = document.getElementById('menu-categories');
+
+    
+}
