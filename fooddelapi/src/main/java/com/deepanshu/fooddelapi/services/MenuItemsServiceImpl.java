@@ -1,5 +1,7 @@
 package com.deepanshu.fooddelapi.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,7 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 	
 	@Autowired
 	private RestaurantRepo restaurantRepo;
+	
 
 	@Override
 	public MenuItemsDTO createMenuItems(MenuItemsRequestHandlerModel itemsRequestHandlerModel) {
@@ -36,6 +39,16 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 		menuItemsDTO.setRestaurant(fetchMenu);
 
 		return itemsRepo.save(menuItemsDTO);
+	}
+
+	@Override
+	public Optional<MenuItemsDTO> fetchMenuItemById(int restaurantId) {
+		System.out.println("inside the fetch menu by id");
+		System.out.println("restaurant id is " + restaurantId);
+	    Optional<MenuItemsDTO> fetchedResponse = itemsRepo.findById(restaurantId);
+	    fetchedResponse.stream().forEach(System.out::println);
+	    
+		return fetchedResponse;
 	}
 
 }
