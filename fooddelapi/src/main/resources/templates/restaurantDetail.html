@@ -1,181 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant | FoodExpress</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" th:href="@{/Css/style.css}" />
-    <link rel="stylesheet" th:href="@{/Css/restaurantDetail.css}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant | FoodExpress</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" th:href="@{/Css/style.css}" />
+<link rel="stylesheet" th:href="@{/Css/restaurantDetail.css}">
+<link rel="stylesheet" th:href="@{/Css/menu.css}">
 </head>
 <body>
-    <!-- Header with User Profile -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1><i class="fas fa-utensils"></i> FoodExpress</h1>
-            </div>
-            <nav>
-                <a href="/dashboard"><i class="fas fa-home"></i> Home</a>
-                <a href="/restaurants"><i class="fas fa-store"></i> Restaurants</a>
-                <a href="/orders"><i class="fas fa-clipboard-list"></i> My Orders</a>
-                <a href="/cart" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
-                
-                <!-- Profile Section - Moved to top-right -->
-                <div class="profile-section">
-                    <div class="notifications">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">3</span>
-                    </div>
-                    <div class="profile-dropdown">
-                        <button class="profile-btn">
-                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff6b6b&color=fff" 
-                                 alt="Profile" class="profile-pic">
-                            <span id="username-display">John Doe</span>
-                            <i class="fas fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
-                            <a href="addresses.html"><i class="fas fa-map-marker-alt"></i> My Addresses</a>
-                            <a href="payment.html"><i class="fas fa-credit-card"></i> Payment Methods</a>
-                            <a href="favorites.html"><i class="fas fa-heart"></i> Favorites</a>
-                            <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </header>
+	<!-- Header with User Profile -->
+	<header>
+		<div class="container">
+			<div class="logo">
+				<h1>
+					<i class="fas fa-utensils"></i> FoodExpress
+				</h1>
+			</div>
+			<nav>
+				<a href="/dashboard"><i class="fas fa-home"></i> Home</a> <a
+					href="/restaurants"><i class="fas fa-store"></i> Restaurants</a> <a
+					href="/orders"><i class="fas fa-clipboard-list"></i> My Orders</a>
+				<a href="/cart" class="cart-link"><i
+					class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
 
-    <!-- Restaurant Detail Main Content -->
-    <main class="restaurant-detail-container">
-        <!-- Restaurant Header -->
-        <section class="restaurant-header">
-            <div class="container">
-                <div class="restaurant-hero">
-                    <div class="restaurant-image">
-                        <img id="restaurant-image" src="#" alt="Restaurant Image">
-                    </div>
-                    <div class="restaurant-overview">
-                        <h1 id="restaurant-name">Restaurant Name</h1>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </span>
-                            <span class="rating-value" id="restaurant-rating">4.5 (120 reviews)</span>
-                        </div>
-                        <p class="cuisine-type" id="restaurant-cuisine">Italian, Mediterranean</p>
-                        <p class="restaurant-address">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span id="restaurant-address">123 Food Street, Downtown</span>
-                        </p>
-                        <div class="restaurant-meta">
-                            <span class="delivery-time">
-                                <i class="fas fa-clock"></i>
-                                <span id="delivery-time">25-35 min delivery</span>
-                            </span>
-                            <span class="price-range" id="price-range">$$</span>
-                        </div>
-                        <div class="restaurant-actions">
-                            <button class="btn-favorite"><i class="far fa-heart"></i> Favorite</button>
-                            <button class="btn-share"><i class="fas fa-share-alt"></i> Share</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+				<!-- Profile Section - Moved to top-right -->
+				<div class="profile-section">
+					<div class="notifications">
+						<i class="fas fa-bell"></i> <span class="notification-badge">3</span>
+					</div>
+					<div class="profile-dropdown">
+						<button class="profile-btn">
+							<img
+								src="https://ui-avatars.com/api/?name=John+Doe&background=ff6b6b&color=fff"
+								alt="Profile" class="profile-pic"> <span
+								id="username-display">John Doe</span> <i
+								class="fas fa-caret-down"></i>
+						</button>
+						<div class="dropdown-content">
+							<a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+							<a href="addresses.html"><i class="fas fa-map-marker-alt"></i>
+								My Addresses</a> <a href="payment.html"><i
+								class="fas fa-credit-card"></i> Payment Methods</a> <a
+								href="favorites.html"><i class="fas fa-heart"></i> Favorites</a>
+							<a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>
+								Logout</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class="mobile-menu">
+				<i class="fas fa-bars"></i>
+			</div>
+		</div>
+	</header>
 
-        <!-- Restaurant Navigation -->
-        <section class="restaurant-nav">
-            <div class="container">
-                <nav>
-                    <a href="#overview" class="active">Overview</a>
-                    <a href="#menu">Menu</a>
-                    <a href="#reviews">Reviews</a>
-                    <a href="#photos">Photos</a>
-                    <a href="#info">Info</a>
-                </nav>
-            </div>
-        </section>
+	<!-- Restaurant Detail Main Content -->
+	<main class="restaurant-detail-container">
+		<!-- Restaurant Header -->
+		<section class="restaurant-header">
+			<div class="container">
+				<div class="restaurant-hero">
+					<div class="restaurant-image">
+						<img id="restaurant-image" src="#" alt="Restaurant Image">
+					</div>
+					<div class="restaurant-overview">
+						<h1 id="restaurant-name">Restaurant Name</h1>
+						<div class="rating">
+							<span class="stars"> <i class="fas fa-star"></i> <i
+								class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+								class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i>
+							</span> <span class="rating-value" id="restaurant-rating">4.5
+								(120 reviews)</span>
+						</div>
+						<p id="cuisine-type">Italian, Mediterranean</p>
+						<p class="restaurant-address">
+							<i class="fas fa-map-marker-alt"></i> <span
+								id="restaurant-address">123 Food Street, Downtown</span>
+						</p>
+						<div class="restaurant-meta">
+							<span class="delivery-time"> <i class="fas fa-clock"></i>
+								<span id="delivery-time">25-35 min delivery</span>
+							</span> <span class="price-range" id="price-range">$$</span>
+						</div>
+						<div class="restaurant-actions">
+							<button class="btn-favorite">
+								<i class="far fa-heart"></i> Favorite
+							</button>
+							<button class="btn-share">
+								<i class="fas fa-share-alt"></i> Share
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <!-- Restaurant Content -->
-        <section class="restaurant-content">
-            <div class="container">
-                <!-- Overview Section -->
-                <div id="overview" class="content-section">
-                    <h2>About This Restaurant</h2>
-                    <p id="restaurant-description">Gourmet Palace offers authentic Italian cuisine with a modern twist. Our chefs use only the freshest ingredients imported directly from Italy to create unforgettable dining experiences.</p>
-                    
-                    <div class="details-grid">
-                        <div class="detail-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h3>Contact</h3>
-                                <p id="contact-info">+1 (555) 123-4567</p>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h3>Opening Hours</h3>
-                                <p id="opening-hours">Mon-Fri: 11:00 AM - 10:00 PM<br>Sat-Sun: 10:00 AM - 11:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-truck"></i>
-                            <div>
-                                <h3>Delivery Area</h3>
-                                <p>Within 5 miles radius</p>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-utensils"></i>
-                            <div>
-                                <h3>Cuisine</h3>
-                                <p id="restaurant-cuisine">Italian, Mediterranean</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+		<!-- Restaurant Navigation -->
+		<section class="restaurant-nav">
+			<div class="container">
+				<nav>
+					<a href="#overview" class="active">Overview</a> <a href="#menu">Menu</a>
+					<a href="#reviews">Reviews</a> <a href="#photos">Photos</a> <a
+						href="#info">Info</a>
+				</nav>
+			</div>
+		</section>
 
-                <!-- Menu Section -->
-                <div id="menu" class="content-section">
-                    <h2>Menu</h2>
-                    
-                    <div class="menu-categories" id="menu-categories">
-                        <!-- Menu items will be loaded dynamically -->
-                    </div>
-                </div>
+		<!-- Restaurant Content -->
+		<section class="restaurant-content">
+			<div class="container">
+				<!-- Overview Section -->
+				<div id="overview" class="content-section">
+					<h2>About This Restaurant</h2>
+					<p id="restaurant-description">Gourmet Palace offers authentic
+						Italian cuisine with a modern twist. Our chefs use only the
+						freshest ingredients imported directly from Italy to create
+						unforgettable dining experiences.</p>
 
-                <!-- Reviews Section -->
-                <div id="reviews" class="content-section">
-                    <h2>Customer Reviews</h2>
-                    <div id="reviews-container">
-                        <!-- Reviews will be loaded dynamically -->
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+					<div class="details-grid">
+						<div class="detail-item">
+							<i class="fas fa-phone"></i>
+							<div>
+								<h3>Contact</h3>
+								<p id="contact-info">+1 (555) 123-4567</p>
+							</div>
+						</div>
+						<div class="detail-item">
+							<i class="fas fa-clock"></i>
+							<div>
+								<h3>Opening Hours</h3>
+								<p id="opening-hours">
+									Mon-Fri: 11:00 AM - 10:00 PM<br>Sat-Sun: 10:00 AM - 11:00
+									PM
+								</p>
+							</div>
+						</div>
+						<div class="detail-item">
+							<i class="fas fa-truck"></i>
+							<div>
+								<h3>Delivery Area</h3>
+								<p>Within 5 miles radius</p>
+							</div>
+						</div>
+						<div class="detail-item">
+							<i class="fas fa-utensils"></i>
+							<div class="cuisine-type">
+								<h3>Cuisine</h3>
+								<p id="cuisine-type">Italian</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-    <!-- Fixed Order Summary -->
-    <div class="order-summary">
-        <div class="container">
-            <div class="order-items">
-                <span class="item-count">0 items</span>
-                <span class="total-price">$0.00</span>
-            </div>
-            <button class="btn-checkout">Checkout</button>
-        </div>
-    </div>
+				<!-- Menu Section -->
+				<div id="menu" class="content-section">
+					<h2>Menu</h2>
+					<!-- Category Tabs -->
+					<div class="category-tabs" id="category-tabs">
+						<!-- Dynamically generated -->
+					</div>
 
-    <script th:src="@{/JavaScript/restaurantDetail.js}"></script>
+					<div class="menu-categories" id="menu-categories">
+						<!-- Menu items will be loaded dynamically  -->
+					</div>
+				</div>
+
+				<!-- Reviews Section -->
+				<div id="reviews" class="content-section">
+					<h2>Customer Reviews</h2>
+					<div id="reviews-container">
+						<!-- Reviews will be loaded dynamically -->
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Fixed Order Summary -->
+	<div class="order-summary">
+		<div class="container">
+			<div class="order-items">
+				<span class="item-count">0 items</span> <span class="total-price">$0.00</span>
+			</div>
+			<button class="btn-checkout">Checkout</button>
+		</div>
+	</div>
+
+	<script th:src="@{/JavaScript/restaurantDetail.js}"></script>
+	<script th:src="@{/JavaScript/menu.js}"></script>
 </body>
 </html>
