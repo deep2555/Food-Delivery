@@ -1,6 +1,7 @@
 package com.deepanshu.fooddelapi.services;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.Map;
 
 import com.deepanshu.fooddelapi.model.MenuItemsDTO;
 import com.deepanshu.fooddelapi.model.MenuItemsRequestHandlerModel;
@@ -8,5 +9,5 @@ import com.deepanshu.fooddelapi.model.MenuItemsRequestHandlerModel;
 public interface MenuItemsService {
 
 	public MenuItemsDTO createMenuItems(MenuItemsRequestHandlerModel itemsRequestHandlerModel);
-	public Optional<MenuItemsDTO> fetchMenuItemById(int restaurantId);
+	public List<Map<String, Object>> fetchMenuItemById(int restaurantId);
 }
