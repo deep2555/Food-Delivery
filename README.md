@@ -22,12 +22,15 @@ A basic full-stack food delivery application using HTML, CSS, JavaScript (fronte
 - Fetch and display user profile from database
 - Basic UI for login and registration
 - Basic UI for Dashboard and Home
+- Fetch and display the list of restaurant from the database.
+- Fetch and Display the menu from database
 
 ---
 
 ## 🚧 Planned Features
-
-- Menu listing (food items)
+- Logger Properties
+- Multithreading environment
+- Spring Security
 - Cart functionality
 - Order placement and confirmation
 - Admin dashboard to manage orders
