@@ -66,9 +66,14 @@ function updateMenuDynamicCard(jsonPharseResponse) {
     jsonPharseResponse.forEach((category, index) => {
         // creating the tab inside each categories
         const tab = document.createElement('div');
-        tab.className = 'category-tab' + (index === 0 ? 'active' : '');
+        tab.className = 'category-tab' + (index === 0 ? ' active' : '');
         tab.textContent = category.categoryName;
         tab.dataset.categoryID = category.id; // we get the id of the each categories
+        // change the categories tab
+        tab.addEventListener('click' ,()=> changeCategory(category.id));
+		
+		// add the tab in the container
+		cardContainer.appendChild(tab);
 
         // create categories section
         const categorySection = document.createElement('div');
@@ -102,4 +107,17 @@ function updateMenuDynamicCard(jsonPharseResponse) {
 
     });
 
+}
+
+
+function changeCategory(categoryId) {
+    // Update active tab
+    document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.categoryId === categoryId);
+    });
+    
+    // Update active category
+    document.querySelectorAll('.menu-category').forEach(category => {
+        category.classList.toggle('active', category.id === `category-${categoryId}`);
+    });
 }
