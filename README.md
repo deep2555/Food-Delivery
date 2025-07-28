@@ -28,7 +28,7 @@ A basic full-stack food delivery application using HTML, CSS, JavaScript (fronte
 ---
 
 ## 🚧 Planned Features
-- Logger Properties
+- Logger Properties (Slf4J)
 - Multithreading environment
 - Spring Security
 - Cart functionality
