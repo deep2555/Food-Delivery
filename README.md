@@ -24,11 +24,11 @@ A basic full-stack food delivery application using HTML, CSS, JavaScript (fronte
 - Basic UI for Dashboard and Home
 - Fetch and display the list of restaurant from the database.
 - Fetch and Display the menu from database
+-  Logger Properties (Slf4J)
 
 ---
 
 ## 🚧 Planned Features
-- Logger Properties (Slf4J)
 - Multithreading environment
 - Spring Security
 - Cart functionality
