@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ import com.deepanshu.fooddelapi.repo.RestaurantRepo;
 @Service
 public class MenuItemsServiceImpl implements MenuItemsService {
 
+	public static final Logger customLogger = LoggerFactory.getLogger(MenuItemsServiceImpl.class);
+
 	@Autowired
 	private ItemsRepo itemsRepo;
 
@@ -27,8 +31,7 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 
 	@Override
 	public MenuItemsDTO createMenuItems(MenuItemsRequestHandlerModel itemsRequestHandlerModel) {
-		System.out.println("here inside the menuitems create menu items");
-		System.out.println(itemsRequestHandlerModel.toString());
+		customLogger.debug("inside the menuitems create menu items with items: {}", itemsRequestHandlerModel);
 		/*
 		 * here we receive the request body in request handler and than add into
 		 * original Dto model class
@@ -49,16 +52,17 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 
 	@Override
 	public List<Map<String, Object>> fetchMenuItemById(int restaurantId) {
-		System.out.println("inside the fetch menu by id");
-		System.out.println("restaurant id is " + restaurantId);
+		customLogger.debug("inside the fetch menu and restaurant id is :{}", restaurantId);
 		Optional<MenuItemsDTO> fetchedResponse = itemsRepo.findById(restaurantId);
+		List<MenuItemsDTO> listOfMenuByRestaurantId = itemsRepo.findByRestaurantId(restaurantId);
 		fetchedResponse.stream().forEach(System.out::println);
+		listOfMenuByRestaurantId.stream().forEach(System.out::println);
 
 		/*
 		 * to render the ui like user able to see the items based on the categories here
 		 * transform the response with group by the categories
 		 */
-		List<Map<String, Object>> renderResponse = updateResponseByCategoeries(fetchedResponse);
+		List<Map<String, Object>> renderResponse = updateResponseByCategoeries(listOfMenuByRestaurantId);
 		return renderResponse;
 	}
 
@@ -67,10 +71,10 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 	 * response like categories id , categories name , categories contain items
 	 */
 
-	private List<Map<String, Object>> updateResponseByCategoeries(Optional<MenuItemsDTO> fetchedResponse) {
+	private List<Map<String, Object>> updateResponseByCategoeries(List<MenuItemsDTO> listOfMenuByRestaurantId) {
 		// TODO Auto-generated method stub
-		System.out.println("inside the updateResponseByCategoeries method");
-		System.out.println("fetched response: " + fetchedResponse);
+		customLogger.debug("inside the updateResponseByCategoeries method, fetched response:{}",
+				listOfMenuByRestaurantId);
 
 		/*
 		 * 1) group by the response in categories and print the group by response like k
@@ -78,10 +82,9 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 		 * references
 		 */
 
-		Map<String, List<MenuItemsDTO>> groupedElement = fetchedResponse.stream()
+		Map<String, List<MenuItemsDTO>> groupedElement = listOfMenuByRestaurantId.stream()
 				.collect(Collectors.groupingBy(MenuItemsDTO::getCategory));
 		groupedElement.forEach((k, v) -> {
-			System.out.println(k + " -> " + v.size() + " items");
 		});
 
 		/* structure create for the response */
@@ -98,8 +101,7 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 			categoriesElem.put("id", items.getKey().toLowerCase().replace("\\s+", "-"));
 			categoriesElem.put("categoryName", items.getKey());
 
-			System.out.println("the id is" + categoriesElem.get("id"));
-			System.out.println("the Category is :" + categoriesElem.get("name"));
+			customLogger.debug("the Category is :" + categoriesElem.get("name"));
 
 			/*
 			 * now create the new list which containing all the map and create the map to
@@ -120,8 +122,6 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 			categoriesElem.put("items", itemsContain);
 			customResponse.add(categoriesElem);
 		}
-		System.out.println("the response we get is: " + customResponse);
-
 		return customResponse;
 	}
 
