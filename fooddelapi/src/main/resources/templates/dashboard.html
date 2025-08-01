@@ -17,7 +17,7 @@
             </div>
             <nav>
                 <a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a>
-                <a href="restaurants.html"><i class="fas fa-store"></i> Restaurants</a>
+                <a href="/restaurants"><i class="fas fa-store"></i> Restaurants</a>
                 <a href="orders.html"><i class="fas fa-clipboard-list"></i> My Orders</a>
                 <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
                 
@@ -101,14 +101,11 @@
         <!-- Quick Actions -->
         <section class="quick-actions">
             <div class="container">
-                <h3>Quick Actions</h3>
+                <div class="section-header">
+                    <h3>Quick Actions</h3>
+                </div>
                 <div class="actions-grid">
-                    <div class="action-card" onclick="location.href='restaurants.html?category=fastfood'">
-                        <div class="action-icon" style="background-color: #ffeaa7;">
-                            <i class="fas fa-hamburger"></i>
-                        </div>
-                        <span>Fast Food</span>
-                    </div>
+                    
                     <div class="action-card" onclick="location.href='restaurants.html?category=italian'">
                         <div class="action-icon" style="background-color: #fab1a0;">
                             <i class="fas fa-pizza-slice"></i>
@@ -133,26 +130,23 @@
                         </div>
                         <span>Desserts</span>
                     </div>
-
-                    <div class="action-card" onclick="location.href='restaurants.html?category=desserts'">
-                        <div class="action-icon" style="background-color: #74b9ff;">
-                            <i class="fas fa-ice-cream"></i>
+                    <div class="action-card" onclick="location.href='restaurants.html?category=breakfast'">
+                        <div class="action-icon" style="background-color: #a29bfe;">
+                            <i class="fas fa-egg"></i>
                         </div>
-                        <span>Desserts</span>
+                        <span>Breakfast</span>
                     </div>
-
-                    <div class="action-card" onclick="location.href='restaurants.html?category=desserts'">
-                        <div class="action-icon" style="background-color: #74b9ff;">
-                            <i class="fas fa-ice-cream"></i>
+                    <div class="action-card" onclick="location.href='restaurants.html?category=beverages'">
+                        <div class="action-icon" style="background-color: #ff7675;">
+                            <i class="fas fa-coffee"></i>
                         </div>
-                        <span>Desserts</span>
+                        <span>Beverages</span>
                     </div>
-
-                    <div class="action-card" onclick="location.href='restaurants.html?category=desserts'">
-                        <div class="action-icon" style="background-color: #74b9ff;">
-                            <i class="fas fa-ice-cream"></i>
+                    <div class="action-card" onclick="location.href='restaurants.html?category=vegetarian'">
+                        <div class="action-icon" style="background-color: #55efc4;">
+                            <i class="fas fa-leaf"></i>
                         </div>
-                        <span>Desserts</span>
+                        <span>Vegetarian</span>
                     </div>
                 </div>
             </div>
@@ -183,13 +177,48 @@
                             <button class="btn-offer">Order Now</button>
                         </div>
                     </div>
-
                     <div class="offer-card">
-                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae" alt="Special Offer">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Special Offer">
                         <div class="offer-content">
-                            <h4>Free Delivery</h4>
-                            <p>On orders above $20 from Pizza Hut</p>
-                            <button class="btn-offer">Order Now</button>
+                            <h4>Buy 1 Get 1</h4>
+                            <p>On all desserts at Sweet Heaven</p>
+                            <button class="btn-offer">Use Code: SWEETBOGO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Restaurants -->
+        <section class="featured-restaurants">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Featured Restaurants</h3>
+                    <a href="restaurants.html" class="see-all">See All</a>
+                </div>
+                <div class="restaurants-grid">
+                    <div class="restaurant-card">
+                        <img src="https://source.unsplash.com/400x250/?restaurant" alt="Restaurant Image">
+                        <div class="restaurant-info">
+                            <h4>Spice Villa</h4>
+                            <p>Indian | Fast Delivery</p>
+                            <span class="rating"><i class="fas fa-star"></i> 4.6</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://source.unsplash.com/400x250/?pizza" alt="Restaurant Image">
+                        <div class="restaurant-info">
+                            <h4>Pizza Flame</h4>
+                            <p>Italian | Free Delivery</p>
+                            <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://source.unsplash.com/400x250/?sushi" alt="Restaurant Image">
+                        <div class="restaurant-info">
+                            <h4>Sushi Bay</h4>
+                            <p>Japanese | New Arrival</p>
+                            <span class="rating"><i class="fas fa-star"></i> 4.5</span>
                         </div>
                     </div>
                 </div>
@@ -204,8 +233,31 @@
                     <a href="restaurants.html" class="see-all">See All</a>
                 </div>
                 
-                <div class="restaurants-grid" id="recommended-restaurants">
-                    <!-- Dynamically loaded from API -->
+                <div class="restaurants-grid">
+                    <div class="restaurant-card">
+                        <img src="https://source.unsplash.com/400x250/?burger" alt="Restaurant Image">
+                        <div class="restaurant-info">
+                            <h4>Burger King</h4>
+                            <p>American | 15-25 mins</p>
+                            <span class="rating"><i class="fas fa-star"></i> 4.3</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://source.unsplash.com/400x250/?pasta" alt="Restaurant Image">
+                        <div class="restaurant-info">
+                            <h4>Pasta Palace</h4>
+                            <p>Italian | 20-30 mins</p>
+                            <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://source.unsplash.com/400x250/?thai" alt="Restaurant Image">
+                        <div class="restaurant-info">
+                            <h4>Thai Terrace</h4>
+                            <p>Thai | 25-35 mins</p>
+                            <span class="rating"><i class="fas fa-star"></i> 4.4</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -218,13 +270,107 @@
                     <a href="orders.html" class="see-all">See All</a>
                 </div>
                 
-                <div class="orders-list" id="recent-orders">
-                    <!-- Dynamically loaded from API -->
+                <div class="orders-list">
+                    <div class="order-item">
+                        <img src="https://source.unsplash.com/100x100/?pizza" alt="Order Item">
+                        <div class="order-details">
+                            <h4>Pizza Margherita</h4>
+                            <p>Pizza Hut • Delivered on Aug 1</p>
+                            <div class="order-footer">
+                                <span class="price">$12.99</span>
+                                <button class="btn-reorder">Reorder</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <img src="https://source.unsplash.com/100x100/?burger" alt="Order Item">
+                        <div class="order-details">
+                            <h4>Cheeseburger Meal</h4>
+                            <p>Burger King • Delivered on Jul 29</p>
+                            <div class="order-footer">
+                                <span class="price">$9.99</span>
+                                <button class="btn-reorder">Reorder</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h3>What Our Customers Say</h3>
+                </div>
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <p>"The delivery was super quick and the food was delicious! Highly recommended."</p>
+                        <span>- Aisha K.</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"FoodExpress has changed how I order food. Great discounts and great service!"</p>
+                        <span>- Ramesh P.</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Love the user interface and ease of use. Always a smooth experience."</p>
+                        <span>- Emily R.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <h3>Stay Updated!</h3>
+                <p>Subscribe to get the latest offers and updates straight to your inbox.</p>
+                <form>
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
         </section>
     </main>
 
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-utensils"></i> FoodExpress</h2>
+                    <p>Delivering happiness to your doorstep</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#">About Us</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Blog</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <a href="#">Help & Support</a>
+                        <a href="#">Partner with us</a>
+                        <a href="#">Ride with us</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FoodExpress. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script th:src="@{/JavaScript/dashboard.js}"></script>
 </body>
